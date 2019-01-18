@@ -144,13 +144,12 @@ joblib.dump(dists, os.path.join("dists.joblib"))
 
 
 from sklearn.metrics import f1_score, accuracy_score
-categories = ['Residue-C','Cu-Loss','Edge-Peeling_PAT-Fail','Pits','Edge-Peeling_PAT-Saw','CMP-SC','Surface_Cotton-Type',
-'Residue-Buried','Metal-Damage','PAT-Fail','Surface_Peeling','Surface_tiny-defect']
+categories = ['0','1','2','3','4','5','6','7','8','9','10','11']
 
-means = joblib.load(os.path.join("mavs01.joblib"))
-dists = joblib.load(os.path.join("dists01.joblib"))
+means = joblib.load(os.path.join("mavs.joblib"))
+dists = joblib.load(os.path.join("dists.joblib"))
 
-scores, labels = joblib.load(os.path.join("val_scores01.joblib"))
+scores, labels = joblib.load(os.path.join("val_scores.joblib"))
 #scores, labels = joblib.load(os.path.join(opt.save, "test_scores.joblib"))
 
 tail_best, alpha_best, th_best = None, None, None
@@ -178,8 +177,7 @@ print(tail_best, alpha_best, th_best, f1_best)
 
 
 from sklearn.metrics import f1_score, accuracy_score
-categories = ['Residue-C','Cu-Loss','Edge-Peeling_PAT-Fail','Pits','Edge-Peeling_PAT-Saw','CMP-SC','Surface_Cotton-Type',
-'Residue-Buried','Metal-Damage','PAT-Fail','Surface_Peeling','Surface_tiny-defect']
+categories = ['0','1','2','3','4','5','6','7','8','9','10','11']
 
 means = joblib.load(os.path.join("mavs.joblib"))
 dists = joblib.load(os.path.join("dists.joblib"))
