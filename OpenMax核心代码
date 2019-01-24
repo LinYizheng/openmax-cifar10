@@ -63,8 +63,8 @@ def compute_openmax_prob(scores, scores_u):
     return modified_scores
 
 
-def softmax(x):
-    e_x = np.exp(x - np.max(x))
+def softmax(_x):
+    e_x = np.exp(_x - np.max(_x))
     return e_x / e_x.sum()
 
 
@@ -107,8 +107,8 @@ for score,  t in zip(tr_logits, y_train):
     if np.argmax(score) == t:
         scores[t].append(score)
 
-scores = [np.array(x)[:, np.newaxis, :] for x in scores]  # (N_c, 1, C) * C
-mavs = np.array([np.mean(x, axis=0) for x in scores])  # (C, 1, C)
+scores = [np.array(_x)[:, np.newaxis, :] for _x in scores]  # (N_c, 1, C) * C
+mavs = np.array([np.mean(_x, axis=0) for _x in scores])  # (C, 1, C)
 joblib.dump(scores, os.path.join("train_scores.joblib"))
 joblib.dump(mavs, os.path.join("mavs.joblib"))
 
